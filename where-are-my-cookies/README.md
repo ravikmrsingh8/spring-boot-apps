@@ -204,6 +204,6 @@ To delete a cookie, we will need to create the cookie with the same name and max
         headers.add(HttpHeaders.SET_COOKIE, cookie1.toString());
         headers.add(HttpHeaders.SET_COOKIE, cookie2.toString());
         headers.add(HttpHeaders.SET_COOKIE, cookie3.toString());
-        return new ResponseEntity<>("Master Ring Destroyed and so is Sauron!", headers, HttpStatus.OK);
+        return new ResponseEntity<>("Master Ring Destroyed, so is Sauron!", headers, HttpStatus.OK);
     }
 ```
