@@ -189,7 +189,7 @@ Spring Framework provides the <code>@CookieValue</code> annotation to read any c
         return "You do not exist!";
     }
 ```
-In cases where the cookie with the name <code>“user-id”</code> does not exist, the controller will return the default value defined with <code>defaultValue = "default-user-id"</code>. If we do not set the default value and Spring fails to find the cookie in the request then it will throw <code style="color:red">java.lang.IllegalStateException</code>  exception.
+In cases where the cookie with the name <code>“user-id”</code> does not exist, the controller will return the default value defined with <code>defaultValue = "default-user-id"</code>. If we do not set the default value and Spring fails to find the cookie in the request then it will throw <code style="color:red">org.springframework.web.bind.MissingRequestCookieException</code>  exception.
 
 #### Deleting a Cookie
 
