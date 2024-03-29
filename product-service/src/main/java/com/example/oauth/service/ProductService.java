@@ -3,6 +3,7 @@ package com.example.oauth.service;
 import com.example.oauth.controller.ProductNotFoundException;
 import com.example.oauth.dao.ProductDao;
 import com.example.oauth.dao.models.Product;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +21,11 @@ public class ProductService {
     }
 
     public Product findProductById(int id) {
-        return dao.findProductById(id)
-                .orElseThrow(() -> new ProductNotFoundException("Product with id:" + id + " not found"));
+        try {
+            return dao.findProductById(id);
+        } catch (EmptyResultDataAccessException ex) {
+            throw new ProductNotFoundException("Product with id:"+ id + " not found");
+        }
     }
 
     public void addProduct(Product product) {

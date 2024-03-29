@@ -21,10 +21,9 @@ public class ProductDao {
        return jdbcTemplate.query("SELECT * FROM PRODUCTS", new BeanPropertyRowMapper<>(Product.class));
     }
 
-    public Optional<Product> findProductById(int id) {
+    public Product findProductById(int id) {
         String query = "SELECT * FROM PRODUCTS WHERE id = " + id;
-        Product product = jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(Product.class));
-        return product == null ? Optional.empty() : Optional.of(product);
+        return jdbcTemplate.queryForObject(query, new BeanPropertyRowMapper<>(Product.class));
     }
 
     public void addProduct(Product product) {
